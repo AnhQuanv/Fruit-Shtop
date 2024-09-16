@@ -1,5 +1,6 @@
 @use "sass:map";
 @import "../../../../styles/Pages/theme.scss";
+@import "../../../../styles/Pages/all.scss";
 
 .header-top {
     background: #f5f5f5;
@@ -39,7 +40,7 @@
 
 .header-top-right {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding: 10px 0 13px;
 
     ul {
@@ -60,6 +61,103 @@
         span {
             font-size: 14px;
             margin-left: 4px;
+        }
+    }
+}
+
+.header-logo {
+    padding: 15px 0;
+}
+
+.header-menu {
+    padding: 20px 0;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li {
+            list-style: none;
+            a {
+                text-decoration: none;
+                font-size: 20px;
+                color: map-get($theme-color, "bold-text");
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 2px;
+                transition: all 0.3s;
+                padding: 5px 0;
+                display: block;
+            }
+        }
+
+        li:hover .header-menu-dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+        .active a {
+            color: map-get($theme-color, "main");
+        }
+
+        .header-menu-dropdown {
+            background: #222222;
+            display: block;
+            position: absolute;
+            width: 180px;
+            z-index: 9;
+            padding: 5px 0;
+            transition: all, 0.3s;
+            opacity: 0;
+            visibility: hidden;
+
+            li {
+                a {
+                    text-transform: capitalize;
+                    color: #ffff;
+                    font-weight: 400;
+                    padding: 5px 10px;
+                }
+                :hover {
+                    color: map-get($theme-color, "main");
+                }
+            }
+        }
+    }
+}
+
+.header-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+
+    ul {
+        display: flex;
+        margin-right: 25px;
+
+        li {
+            list-style: none;
+            position: relative;
+
+            svg {
+                font-size: 25px;
+                color: map-get($theme-color, "normal-text");
+            }
+            span {
+                color: white;
+                background: map-get($theme-color, "main");
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                border-radius: 40px;
+                display: inline-block;
+                text-align: center;
+                line-height: 20px;
+                font-size: 13px;
+                font-weight: 500;
+                left: 20px;
+                top: -2px;
+            }
         }
     }
 }
